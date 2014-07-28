@@ -27,6 +27,10 @@ if($_POST)
 		$x = $number1 / $number2;
 	}	
 	
+		if($operation == "%")
+	{
+		$x = $number1 % $number2;
+	}
 	
 	echo $x. " is the answer<br/>";
 }
@@ -54,6 +58,7 @@ if($_POST)
 				<option value = "-">-</option>
 				<option value = "x">x</option>
 				<option value = "/">/</option>
+				<option value = "%">%(mod)</option>
 			</select>
 			
 			<br/>
@@ -67,6 +72,7 @@ if($_POST)
 			
 		</form>
 		
+		<a href="graph.php">Visit W3Schools</a>
 
 	</body> 
 </html>
