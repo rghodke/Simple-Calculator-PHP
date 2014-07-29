@@ -1,10 +1,10 @@
 <?php
 
-$equation = $_POST['equation'];
-$number1 =  $_POST['number1'];
-	
-echo $x. " is the answer<br/>";
-
+if (!empty($_POST["equ"])) {
+    echo "Yes, equ is set";    
+}else{  
+    echo "N0, equ is not set";
+}
 ?>
 
 <html>
@@ -19,7 +19,7 @@ echo $x. " is the answer<br/>";
 		
 		<form method = "post1">
 			
-			Enter equation y= <input type="text" equation="equation" />
+			Enter equation y= <input type="text" name="equ" />
 			
 			<br/>
 			
@@ -29,7 +29,7 @@ echo $x. " is the answer<br/>";
 		
 		<form method = "post2">
 			
-			Solve for: <input type="text" number1="number1" />
+			Solve for: <input type="text" name="number1" />
 			
 			<br/>
 			

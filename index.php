@@ -32,6 +32,11 @@ if($_POST)
 		$x = $number1 % $number2;
 	}
 	
+	if($operation == "^")
+	{
+		$x = pow ( $number1 , $number2);
+	}
+	
 	echo $x. " is the answer<br/>";
 }
 
@@ -59,6 +64,7 @@ if($_POST)
 				<option value = "x">x</option>
 				<option value = "/">/</option>
 				<option value = "%">%(mod)</option>
+				<option value="^">^(power)</option>
 			</select>
 			
 			<br/>
@@ -72,7 +78,7 @@ if($_POST)
 			
 		</form>
 		
-		<a href="graph.php">Visit W3Schools</a>
+		<a href="graph.php">Graphing</a>
 
 	</body> 
 </html>
