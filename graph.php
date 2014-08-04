@@ -11,19 +11,20 @@
 	
 	<body>
 		
-		<form method = 'POST' action='#'>
+		<form method = 'POST'>
 			
 			Enter question: <input type="text" name="equ" value="<?php echo $_REQUEST['equ']; ?>">
 			
 			<input type="submit" name="Search" value="Search">
 			
 			<br/>
-			
-			<input type = "submit" value ="send" />
-			
+					
 		</form>
 		
 <?php
+
+//  $equ = $_POST['equ'];
+
   $appID = 'RALVW5-APUY2TRU8R';
 
   $engine = new WolframAlphaEngine( $appID );
@@ -35,13 +36,11 @@
 <br>
 
 <?php
-  // if there are any assumptions, display them 
   if ( count($response->getAssumptions()) > 0 ) {
 ?>
     <h2>Assumptions:</h2>
     <ul>
 <?php
-      // assumptions come as a hash of type as key and array of assumptions as value
       foreach ( $response->getAssumptions() as $type => $assumptions ) {
 ?>
         <li><?php echo $type; ?>:<br>
@@ -49,7 +48,9 @@
 <?php
           foreach ( $assumptions as $assumption ) {
 ?>
-            <li><?php echo $assumption->name ." ". $assumption->description;?> Did you mean? <a href="simpleRequest.php?equ=<?php echo urlencode($assumption->input);?>">If yes, click here</a></li>
+            <li><?php echo $assumption->name .", ". $assumption->description. ".";?> Did you mean?
+            	 <a href="graph.php?equ=<?php echo $_POST['equ'];?> <?php echo urlencode($assumption->name);?>">
+            	 	If yes, click here</a></li>
 <?php
           }
 ?>
@@ -67,7 +68,6 @@
 <hr>
 
 <?php
-  // if there are any pods, display them
   if ( count($response->getPods()) > 0 ) {
 ?>
     <h2>Results</h2>
